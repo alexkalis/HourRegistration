@@ -22,10 +22,10 @@
         </div>
         <div class="form-group">
             {{ Form::label('beginTime', 'beginTime')}}
-            {{ Form::time('beginTime', '')}}
+            {{ Form::time('beginTime')}}
         </div><div class="form-group">
             {{ Form::label('endTime', 'endTime')}}
-            {{ Form::time('endTime', '')}}
+            {{ Form::time('endTime')}}
         </div>
 
         {{ Form::submit('Edit the hours', array('class' => 'btn btn-primary'))}}
