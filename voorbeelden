@@ -1,0 +1,3 @@
+return view voorbeelden met twee variable:
+return view('/show', ['show' => $show, 'total' => $total]);
+return view('/show')->with(['show' => $show, 'total' => $total]);

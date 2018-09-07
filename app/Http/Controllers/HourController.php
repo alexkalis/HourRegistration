@@ -14,10 +14,12 @@ class HourController extends Controller
      */
     public function index()
     {
-        $hour = HourRegistration::orderBy('created_at', 'asc')->paginate(10);
-        return view('hour', ['hour' => $hour]);
-    }
+        $hours = HourRegistration::orderBy('created_at', 'asc')->paginate(10);
 
+        $allHours = HourRegistration::sum('hours');
+        $total = $allHours * 4.56;
+        return view('/hour', ['hours' => $hours, 'count' => $count, 'total' => $total]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -38,12 +40,14 @@ class HourController extends Controller
     {
         $request->validate([
             'day' => 'required',
+            'hours' => 'required',
             'date' => 'required',
             'beginTime' =>'required',
             'endTime' => 'required'
         ]);
         $post = new HourRegistration;
         $post->day = $request->input('day');
+        $post->hours = $request->input('hours');
         $post->date = $request->input('date');
         $post->beginTime = $request->input('beginTime');
         $post->endTime = $request->input('endTime');
@@ -60,9 +64,10 @@ class HourController extends Controller
     public function show($id)
     {
         $show = HourRegistration::find($id);
-        return view('/show')->with('show', $show);
+        $salary = $show->endTime - $show->beginTime;
+        $total = $salary * 4.56;
+        return view('/show', ['show' => $show, 'total' => $total]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -109,6 +114,8 @@ class HourController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = HourRegistration::find($id);
+        $delete->delete();
+        return back();
     }
 }

@@ -26,3 +26,7 @@ if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
 }
+Route::get('login', array('uses' => 'UserController@showLogin'));
+Route::post('login', array('uses' => 'UserController@doLogin'));
+Route::get('register', array('uses' => 'UserController@showRegister'));
+Route::post('login', array('uses' => 'UserController@doLogin'));
