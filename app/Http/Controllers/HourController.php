@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HourRegistration;
-
+use App\User;
+use Auth;
 class HourController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class HourController extends Controller
     public function index()
     {
         $hours = HourRegistration::orderBy('created_at', 'asc')->paginate(10);
-
+        $user = Auth::user();
         $allHours = HourRegistration::sum('hours');
         $total = $allHours * 4.56;
         return view('/hour', ['hours' => $hours, 'count' => $count, 'total' => $total]);
@@ -36,8 +37,11 @@ class HourController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
     {
+      $user = Auth::user();
         $request->validate([
             'day' => 'required',
             'hours' => 'required',
@@ -51,6 +55,7 @@ class HourController extends Controller
         $post->date = $request->input('date');
         $post->beginTime = $request->input('beginTime');
         $post->endTime = $request->input('endTime');
+        $post->user_id = $user->id;
         $post->save();
         return redirect('/hour')->with('success', 'hours registrated');
     }

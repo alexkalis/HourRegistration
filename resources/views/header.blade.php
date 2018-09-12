@@ -4,6 +4,11 @@
         <meta charset="utf-8">
         <title>Hour registration</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <a href="/HourRegistration">Registrate your hours.</a>
+        <a href="/hour">See all the hours.</a>
+        <a href="/profile">Profile</a>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">register</a></li>
 
     </head>
     <body>

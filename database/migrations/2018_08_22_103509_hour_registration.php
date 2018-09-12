@@ -18,6 +18,8 @@ class HourRegistration extends Migration
             $table->string('hours')->integer();
             $table->string('date')->date();
             $table->string('day');
+            $table->string('beginTime');
+            $table->string('endTime ');
             $table->timestamps();
         });
     }

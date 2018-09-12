@@ -10,12 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/send/email', 'HomeController@mail');
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/profile', 'UserController@showUser');
+
 Route::get('/HourRegistration', function(){
-    Return View::make('HourRegistration');
+    return View::make('HourRegistration');
 });
 // Route::post('form-submit', array);
 Route::get('/hour', 'HourController@index');
@@ -30,3 +32,7 @@ Route::get('login', array('uses' => 'UserController@showLogin'));
 Route::post('login', array('uses' => 'UserController@doLogin'));
 Route::get('register', array('uses' => 'UserController@showRegister'));
 Route::post('login', array('uses' => 'UserController@doLogin'));
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

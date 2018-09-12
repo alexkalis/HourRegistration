@@ -1,5 +1,5 @@
 @include('header')
-            <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <td>ID</td>
@@ -31,3 +31,7 @@
         </tr>
                     </tbody>
                 </table>
+                <div class="mapouter" style="border:solid"><div class="gmap_canvas"><iframe width="300" height="250" id="gmap_canvas"
+                  src="https://maps.google.com/maps?q={{$show->address}}=&z=13&ie=UTF8&iwloc=&output=embed"
+                   frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                 </iframe><a href="https://www.embedgooglemap.net"></a></div><style>.mapouter{text-align:right;height:250px;width:300px;}.gmap_canvas {overflow:hidden;background:none!important;height:250px;width:300px;}</style></div>

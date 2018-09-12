@@ -4,9 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use Input;
+use Illuminate\Support\Facades\Input;
+use App\HourRegistration;
+use Auth;
+use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 {
+
+  public function showUser() {
+    $user = Auth::user();
+    $hours= HourRegistration::where('user_id' , $user['id'])->get();
+    $allHours = HourRegistration::sum('hours');
+    $total = $allHours * 4.56;
+    return view('/profile', ['user' => $user, 'hours' => $hours, 'total' => $total]);
+  }
+
+
     public function showLogin() {
             return View('login');
         }
@@ -39,7 +52,7 @@ class UserController extends Controller
             } else {
 
                 // validation not successful, send back to form
-                return Redirect::to('login');
+                return Redirect::to('/hour');
 
             }
 }

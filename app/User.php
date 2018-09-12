@@ -8,7 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    public function hours() {
+      return $this->hasMany(HourRegistration::class);
+    }
     /**
      * The attributes that are mass assignable.
      *
