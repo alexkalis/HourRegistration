@@ -19,7 +19,7 @@ class HourController extends Controller
         $user = Auth::user();
         $allHours = HourRegistration::sum('hours');
         $total = $allHours * 4.56;
-        return view('/hour', ['hours' => $hours, 'count' => $count, 'total' => $total]);
+        return view('/hour', ['hours' => $hours, 'count' => $count, 'total' => $total, 'user' => $user]);
     }
     /**
      * Show the form for creating a new resource.

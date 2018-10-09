@@ -1,4 +1,4 @@
-@include('header')
+@include('layouts.app')
     <body>
         <table class="table table-striped table-bordered">
     <table>

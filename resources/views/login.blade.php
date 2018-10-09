@@ -1,4 +1,4 @@
-@extends('header')
+@include('layouts.app')
 
 
 <div class="container">

@@ -32,7 +32,9 @@ Route::get('login', array('uses' => 'UserController@showLogin'));
 Route::post('login', array('uses' => 'UserController@doLogin'));
 Route::get('register', array('uses' => 'UserController@showRegister'));
 Route::post('login', array('uses' => 'UserController@doLogin'));
-
+//
+Route::get('/search', 'queryController@search');
+// Route::resource('queries', 'QueryController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,9 +1,11 @@
-@include('header')
+@extends('layouts.app')
+@section('content')
+
         <h1>Edit this date {{$edit->date}}</h1>
         {{Form::model($edit, array('route' => array('hour.update', $edit->id), 'method' => 'PUT'))}}
         <div class="form-group">
             {{ Form::label('day', 'Day')}}
-            {{Form::select('day', ['Monday' => 'Monday', 'Tuesday' => 'Tuesday', 'Wednesday' => 'Wednesday',  'Thursday' => 'Thursday', 'Friday' => 'Friday', 'Saturday' => 'Saturday', 'Sunday' => 'Sunday'])}}
+            {{Form::select('day', ['Maandag' => 'Maandag', 'Dinsdag' => 'Dinsdag', 'Woensdag' => 'Woensdag',  'Donderdag' => 'Donderdag', 'Vrijdag' => 'Vrijdag', 'Zaterdag' => 'Zaterdag', 'Sunday' => 'Zondag'])}}
         </div>
         <div class="form-group">
             {{ Form::label('date', 'Date')}}
@@ -22,3 +24,4 @@
 
     </body>
 </html>
+@endsection
