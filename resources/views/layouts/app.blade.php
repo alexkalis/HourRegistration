@@ -59,7 +59,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/search">Search.</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="/schools">All schools.</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/session/index">Session test.</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/souls/index">Souls.</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

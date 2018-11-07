@@ -4,13 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class User extends Authenticatable
 {
     use Notifiable;
-    public function hours() {
-      return $this->hasMany(HourRegistration::class);
-    }
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -28,4 +27,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function verifyUsers() {
+        return $this->hasOne('App\Verifyuser');
+    }
+
+    public function hours() {
+      return $this->hasMany(HourRegistration::class);
+    }
+    public function student() {
+    return $this->hasOne('App\Students'); // obviously ensure you correct the namespaces if necessary
+}
+
 }

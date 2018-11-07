@@ -5,7 +5,7 @@
         {{Form::model($edit, array('route' => array('hour.update', $edit->id), 'method' => 'PUT'))}}
         <div class="form-group">
             {{ Form::label('day', 'Day')}}
-            {{Form::select('day', ['Maandag' => 'Maandag', 'Dinsdag' => 'Dinsdag', 'Woensdag' => 'Woensdag',  'Donderdag' => 'Donderdag', 'Vrijdag' => 'Vrijdag', 'Zaterdag' => 'Zaterdag', 'Sunday' => 'Zondag'])}}
+            {{Form::select('day', ['Maandag' => 'Maandag', 'Dinsdag' => 'Dinsdag', 'Woensdag' => 'Woensdag',  'Donderdag' => 'Donderdag', 'Vrijdag' => 'Vrijdag', 'Zaterdag' => 'Zaterdag', 'Sunday' => 'Zondag'])}}9
         </div>
         <div class="form-group">
             {{ Form::label('date', 'Date')}}
